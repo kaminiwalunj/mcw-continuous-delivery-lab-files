@@ -1,5 +1,7 @@
+docker login ghcr.io -u kamini@spektrasystems.com -p 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
+
 $studentprefix = "790341"
-$githubAccount = "Your github account name here"
+$githubAccount = "kaminiwalunj"
 $resourcegroupName = "fabmedical-rg-" + $studentprefix
 $cosmosDBName = "fabmedical-cdb-" + $studentprefix
 
