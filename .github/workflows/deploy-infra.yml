@@ -1,40 +1,32 @@
-name: Docker
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
+on: [push]
 
-on:
-  schedule:
-    - cron: '40 18 * * *'
-  push:
-    branches: [ main ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ main ]
+name: AzurePowerShellSample
 
-  
-deploy:
-    # The type of runner that the job will run on
+jobs:
+
+  build:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2                
-
-    - name: Login on Azure CLI
-      uses: azure/login@v1.1
+    
+    - name: Login via Az module
+      uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true 
+        
+    - name: Run Azure PowerShell script
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-AzVM -ResourceGroupName "fabmedical-rg-790341"
+        azPSVersion: "latest"
 
-    - name: Seed the database
-      shell: pwsh
-      env:
-        CR_PAT: ${{ secrets.CR_PAT }}
-      run: |
-        cd ./infrastructure
-        ./seed-cosmosdb.ps1 #deploymentID # <-- REPLACE the deploymentID
+
+
+
                                                 
