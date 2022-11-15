@@ -25,7 +25,18 @@ jobs:
            $mongodbConnectionString1 = $mongodbConnectionString["Primary MongoDB Connection String"]
            $mongodbConnectionString1 
            docker run -ti -e MONGODB_CONNECTION="$mongodbConnectionString1" ghcr.io/kaminiwalunj/fabrikam-init:main
-
+           
+    - name: run webapp
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+           az webapp config container set --docker-registry-server-password $env:CR_PAT `
+            --docker-registry-server-url https://ghcr.io `
+            --docker-registry-server-user kaminiwalunj `
+            --multicontainer-config-file ./../docker-compose.yml `
+            --multicontainer-config-type COMPOSE `
+            --name fabmedical-web-790341 `
+            --resource-group fabmedical-rg-790341
 
 
         azPSVersion: "latest"
