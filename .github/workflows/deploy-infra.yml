@@ -18,12 +18,9 @@ jobs:
         enable-AzPSSession: true 
         
     - name: run seed
-      Inlinescript: |
-         docker run -ti -e MONGODB_CONNECTION="mongodb://fabmedical-cdb-790341:XbdQREzDqZUT1qccQAy4IZdfrvYLriSzJktcocF2INByXIqQ2NAO4POoCpDSXG0730pGGzB9JJnhACDb4enSmQ==@fabmedical-cdb-790341.mongo.cosmos.azure.com:10255/?ssl=true&replicaS
-et=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@fabmedical-cdb-790341@" ghcr.io/kaminiwalunj/fabrikam-init:main
+      run: .\seed.ps1 
 
-        azPSVersion: "latest"
-
+  
 
 
 
