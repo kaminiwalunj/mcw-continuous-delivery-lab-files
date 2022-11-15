@@ -18,15 +18,9 @@ jobs:
         enable-AzPSSession: true 
         
     - name: run seed
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.30.0
-        inlineScript: |
-          az cosmosdb keys list `
-              --name fabmedical-cdb-790341 `
-              --resource-group fabmedical-rg-790341 `
-              --type connection-strings `
-              --query 'connectionStrings[0].connectionString')
+      shell: pwsh
+      run: |
+        Get-AzCosmosDBAccountKey -ResourceGroupName fabmedical-rg-790341 -Name fabmedical-cdb-790341 -Type "ConnectionStrings" 
 
 
                                                 
