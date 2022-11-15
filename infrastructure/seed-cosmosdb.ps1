@@ -1,6 +1,6 @@
 #docker login ghcr.io -u kaminiwalunj -p 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
 docker login docker.pkg.github.com -u kaminiwalunj -p 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
-docker pull ghcr.io/kaminiwalunj/fabrikam-init:main
+#docker pull ghcr.io/kaminiwalunj/fabrikam-init:main
 $studentprefix = "790341"
 $githubAccount = "kaminiwalunj"
 $resourcegroupName = "fabmedical-rg-" + $studentprefix
@@ -15,5 +15,7 @@ $mongodbConnectionString = `
         --query 'connectionStrings[0].connectionString')
 
 # Seed CosmosDB database
-docker run -t -e MONGODB_CONNECTION="$mongodbConnectionString" ghcr.io/$githubAccount/fabrikam-init:main
+
+docker images
+#docker run -t -e MONGODB_CONNECTION="$mongodbConnectionString" ghcr.io/$githubAccount/fabrikam-init:main
 
