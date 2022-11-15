@@ -22,6 +22,6 @@ jobs:
       with:
         inlineScript: |
           Get-AzCosmosDBAccountKey -ResourceGroupName fabmedical-rg-790341 -Name fabmedical-cdb-790341 -Type "ConnectionStrings" 
-
+        azPSVersion: "latest"
 
                                                 
