@@ -1,5 +1,5 @@
-#echo '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' | docker login ghcr.io -u kaminiwalunj --password-stdin
-docker login docker.pkg.github.com -u kaminiwalunj -p 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
+docker login ghcr.io -u kaminiwalunj -p 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
+#echo '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' | docker login docker.pkg.github.com -u kaminiwalunj -p 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
 
 $studentprefix = "790341"
 $githubAccount = "kaminiwalunj"
@@ -15,5 +15,5 @@ $mongodbConnectionString = `
         --query 'connectionStrings[0].connectionString')
 
 # Seed CosmosDB database
-docker run -t -e MONGODB_CONNECTION="$mongodbConnectionString" docker.pkg.github.com/$githubAccount/fabrikam-init:main
+docker run -t -e MONGODB_CONNECTION="$mongodbConnectionString" ghcr.io/$githubAccount/fabrikam-init:main
 
