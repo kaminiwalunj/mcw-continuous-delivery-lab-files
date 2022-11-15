@@ -18,7 +18,7 @@ jobs:
         enable-AzPSSession: true 
         
     - name: run seed
-      run: .\seed.ps1 
+      run: ./seed.ps1 
       shell: pwsh
 
   
