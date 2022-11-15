@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 on: [push]
-
+ 
 
 name: AzurePowerShellSample
 
@@ -28,19 +28,12 @@ jobs:
            docker run -ti -e MONGODB_CONNECTION="$mongodbConnectionString1" ghcr.io/kaminiwalunj/fabrikam-init:main
            
         azPSVersion: "latest"
-    - name: run webapp
-      uses: azure/powershell@v1
-      with:
-        inlineScript: |
-           az webapp config container set --docker-registry-server-password ${{secrets.CR_PAT}} `
-            --docker-registry-server-url https://ghcr.io `
-            --docker-registry-server-user kaminiwalunj `
-            --multicontainer-config-file kaminiwalunj/mcw-continuous-delivery-lab-files/blob/main/docker-compose.yml `
-            --multicontainer-config-type COMPOSE `
-            --name fabmedical-web-790341 `
-            --resource-group fabmedical-rg-790341
-
-
-        azPSVersion: "latest"
+    - name: Deploy WebApp
+      shell: pwsh
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
+      run: |
+        cd ./infrastructure
+        ./deploy-webapp.ps1  hbs
 
                                                 
