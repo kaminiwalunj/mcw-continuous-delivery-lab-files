@@ -18,9 +18,10 @@ jobs:
         enable-AzPSSession: true 
         
     - name: run seed
-      shell: pwsh
-      run: |
-        Get-AzCosmosDBAccountKey -ResourceGroupName fabmedical-rg-790341 -Name fabmedical-cdb-790341 -Type "ConnectionStrings" 
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-AzCosmosDBAccountKey -ResourceGroupName fabmedical-rg-790341 -Name fabmedical-cdb-790341 -Type "ConnectionStrings" 
 
 
                                                 
