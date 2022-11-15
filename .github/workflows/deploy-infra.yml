@@ -31,7 +31,7 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-           az webapp config container set --docker-registry-server-password $env:CR_PAT `
+           az webapp config container set --docker-registry-server-password ${{secrets.CR_PAT}} `
             --docker-registry-server-url https://ghcr.io `
             --docker-registry-server-user kaminiwalunj `
             --multicontainer-config-file ./../docker-compose.yml `
