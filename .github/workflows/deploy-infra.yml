@@ -19,8 +19,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true 
         
-    - name: Run Azure PowerShell script
-      uses: azure/powershell@v1
+    - name: run seed
       with:
         Inlinescript: |
           docker login ghcr.io -u kamini@spektrasystems.com -p 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
