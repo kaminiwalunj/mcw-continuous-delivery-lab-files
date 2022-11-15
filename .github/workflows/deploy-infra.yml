@@ -19,6 +19,7 @@ jobs:
         
     - name: run seed
       run: .\seed.ps1 
+      shell: pwsh
 
   
 
