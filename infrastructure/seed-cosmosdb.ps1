@@ -1,4 +1,4 @@
-#echo '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' | docker login ghcr.io -u kaminiwalunj --password-stdin
+echo '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' | docker login ghcr.io -u kaminiwalunj --password-stdin
 
 $studentprefix = "790341"
 $githubAccount = "kaminiwalunj"
