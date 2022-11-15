@@ -4,7 +4,10 @@
 # documentation.
 on: [push]
 
+
 name: AzurePowerShellSample
+branches:
+- main
 
 jobs:
   build:
@@ -34,7 +37,7 @@ jobs:
            az webapp config container set --docker-registry-server-password ${{secrets.CR_PAT}} `
             --docker-registry-server-url https://ghcr.io `
             --docker-registry-server-user kaminiwalunj `
-            --multicontainer-config-file ./docker-compose.yml `
+            --multicontainer-config-file kaminiwalunj/mcw-continuous-delivery-lab-files/blob/main/docker-compose.yml `
             --multicontainer-config-type COMPOSE `
             --name fabmedical-web-790341 `
             --resource-group fabmedical-rg-790341
