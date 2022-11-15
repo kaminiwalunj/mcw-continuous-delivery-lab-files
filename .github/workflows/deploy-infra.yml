@@ -36,9 +36,9 @@ jobs:
               --query 'connectionStrings[0].connectionString')
 
           # Seed CosmosDB database
-          docker run -ti `
-           -e MONGODB_CONNECTION="$mongodbConnectionString" `
-               ghcr.io/$githubAccount/fabrikam-init:main
+          #docker run -ti `
+           #-e MONGODB_CONNECTION="$mongodbConnectionString" `
+            #   ghcr.io/$githubAccount/fabrikam-init:main
 
         azPSVersion: "latest"
 
