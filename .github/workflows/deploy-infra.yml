@@ -19,11 +19,8 @@ jobs:
         
     - name: run seed
       run: |
-     
-        $mongodbConnectionString = $(az cosmosdb keys list --name fabmedical-cdb-790341 --resource-group fabmedical-rg-790341--type connection-strings --query 'connectionStrings[0].connectionString')
-
-       
-          docker run -ti -e MONGODB_CONNECTION="$mongodbConnectionString" ghcr.io/kaminiwalunj/fabrikam-init:main
+        docker run -ti -e MONGODB_CONNECTION="mongodb://fabmedical-cdb-790341:XbdQREzDqZUT1qccQAy4IZdfrvYLriSzJktcocF2INByXIqQ2NAO4POoCpDSXG0730pGGzB9JJnhACDb4enSmQ==@fabmedical-cdb-790341.mongo.cosmos.azure.com:10255/?ssl=true&replicaS
+et=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@fabmedical-cdb-790341@" ghcr.io/kaminiwalunj/fabrikam-init:main
 
         azPSVersion: "latest"
 
