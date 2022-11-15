@@ -28,6 +28,15 @@ jobs:
       uses: azure/login@v1.1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    
+    - name: seed cosmos
+      shell: pwsh
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
+      run: |
+        cd ./infrastructure
+        ./seed-cosmosdb.ps1 
 
     - name: Deploy WebApp
       shell: pwsh
