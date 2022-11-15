@@ -19,21 +19,11 @@ jobs:
         
     - name: run seed
       run: |
-        #docker login ghcr.io -u kamini@spektrasystems.com -p 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
+     
+        $mongodbConnectionString = $(az cosmosdb keys list --name fabmedical-cdb-790341 --resource-group fabmedical-rg-790341--type connection-strings --query 'connectionStrings[0].connectionString')
+
        
-
-        # Fetch CosmosDB Mongo connection string
-        $mongodbConnectionString = `
-        $(az cosmosdb keys list `
-        --name fabmedical-cdb-790341 `
-              --resource-group fabmedical-rg-790341 `
-              --type connection-strings `
-              --query 'connectionStrings[0].connectionString')
-
-          # Seed CosmosDB database
-          #docker run -ti `
-           #-e MONGODB_CONNECTION="$mongodbConnectionString" `
-            #   ghcr.io/kaminiwalunj/fabrikam-init:main
+          docker run -ti -e MONGODB_CONNECTION="$mongodbConnectionString" ghcr.io/kaminiwalunj/fabrikam-init:main
 
         azPSVersion: "latest"
 
