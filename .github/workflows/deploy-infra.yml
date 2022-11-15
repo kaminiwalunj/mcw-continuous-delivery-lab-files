@@ -23,6 +23,7 @@ jobs:
         inlineScript: |
            $mongodbConnectionString = Get-AzCosmosDBAccountKey -ResourceGroupName fabmedical-rg-790341 -Name fabmedical-cdb-790341 -Type "ConnectionStrings" 
            $mongodbConnectionString1 = $mongodbConnectionString["Primary MongoDB Connection String"]
+           $mongodbConnectionString1 
            docker run -ti -e MONGODB_CONNECTION="$mongodbConnectionString1" ghcr.io/$githubAccount/fabrikam-init:main
 
 
