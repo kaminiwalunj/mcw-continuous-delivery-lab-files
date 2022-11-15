@@ -3,12 +3,19 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-on: [push]
+on:
+  workflow_dispatch:
+    inputs: { }
 
 name: AzurePowerShellSample
 
-jobs:
+env:
+  studentprefix = 790341
+  githubAccount = kaminiwalunj
+  resourcegroupName = "fabmedical-rg-" + studentprefix
+  cosmosDBName = "fabmedical-cdb-" + studentprefix
 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,10 +29,7 @@ jobs:
     - name: run seed
       run: |
         #docker login ghcr.io -u kamini@spektrasystems.com -p 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
-        $studentprefix = "790341"
-        $githubAccount = "kaminiwalunj"
-        $resourcegroupName = "fabmedical-rg-" + $studentprefix
-        $cosmosDBName = "fabmedical-cdb-" + $studentprefix
+       
 
         # Fetch CosmosDB Mongo connection string
         $mongodbConnectionString = `
