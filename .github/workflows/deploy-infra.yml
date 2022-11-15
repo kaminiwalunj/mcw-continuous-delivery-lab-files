@@ -20,8 +20,7 @@ jobs:
         enable-AzPSSession: true 
         
     - name: run seed
-      with:
-        run: |
+      run: |
           docker login ghcr.io -u kamini@spektrasystems.com -p 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
           $studentprefix = "790341"
           $githubAccount = "kaminiwalunj"
