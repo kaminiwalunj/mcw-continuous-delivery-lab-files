@@ -6,8 +6,6 @@ on: [push]
 
 
 name: AzurePowerShellSample
-branches:
-- main
 
 jobs:
   build:
