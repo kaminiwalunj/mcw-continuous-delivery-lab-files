@@ -1,4 +1,4 @@
-#docker login ghcr.io -u kamini@spektrasystems.com -p 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
+echo 'uvnl2pbv4sk4dd5kwenkcqu5pjobsojuw6fayvhg6ehyyruwjndq' | docker login ghcr.io -u <my_username> --password-stdin
 
 $studentprefix = "790341"
 $githubAccount = "kaminiwalunj"
