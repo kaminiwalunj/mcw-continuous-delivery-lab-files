@@ -5,15 +5,9 @@
 # documentation.
 on:
   workflow_dispatch:
-    inputs: { }
+
 
 name: AzurePowerShellSample
-
-env:
-  studentprefix = 790341
-  githubAccount = kaminiwalunj
-  resourcegroupName = "fabmedical-rg-" + studentprefix
-  cosmosDBName = "fabmedical-cdb-" + studentprefix
 
 jobs:
   build:
@@ -34,15 +28,15 @@ jobs:
         # Fetch CosmosDB Mongo connection string
         $mongodbConnectionString = `
         $(az cosmosdb keys list `
-        --name $cosmosDBName `
-              --resource-group $resourcegroupName `
+        --name fabmedical-cdb-790341 `
+              --resource-group fabmedical-rg-790341 `
               --type connection-strings `
               --query 'connectionStrings[0].connectionString')
 
           # Seed CosmosDB database
           #docker run -ti `
            #-e MONGODB_CONNECTION="$mongodbConnectionString" `
-            #   ghcr.io/$githubAccount/fabrikam-init:main
+            #   ghcr.io/kaminiwalunj/fabrikam-init:main
 
         azPSVersion: "latest"
 
