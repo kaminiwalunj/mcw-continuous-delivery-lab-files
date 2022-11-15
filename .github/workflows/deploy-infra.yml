@@ -26,6 +26,7 @@ jobs:
            $mongodbConnectionString1 
            docker run -ti -e MONGODB_CONNECTION="$mongodbConnectionString1" ghcr.io/kaminiwalunj/fabrikam-init:main
            
+        azPSVersion: "latest"
     - name: run webapp
       uses: azure/powershell@v1
       with:
