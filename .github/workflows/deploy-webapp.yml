@@ -42,7 +42,6 @@ jobs:
       env:
         CR_PAT: ${{ secrets.CR_PAT }}
       run: |
-        cd ./infrastructure
         ./deploy-webapp.ps1   # <-- This needs to
                                                 # match the student
                                                 # prefix we use in
